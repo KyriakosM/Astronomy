@@ -6,16 +6,16 @@
 
 Α. ΟΔΗΓΙΕΣ ΕΓΚΑΤΑΣΤΑΣΗΣ ΕΦΑΡΜΟΓΗΣ
 
-    Εγκατάσταση της εφαρμογής XAMPP
-    Άνοιγμα ΧΑΜPP control panel
-    Επιλογή module Apache 🡪 Start
-    Eπιλογή ΜySQL 🡪 Start
+    1.Εγκατάσταση της εφαρμογής XAMPP
+    2.Άνοιγμα ΧΑΜPP control panel
+    3.Επιλογή module Apache 🡪 Start
+    4.Eπιλογή ΜySQL 🡪 Start
     Επιλογή ΜySQL 🡪 Admin
     Εγκατάσταση του συνημμένου φακέλου astronomy, αφού πρώτα τον αποσυμπιέσουμε, μέσα στον φάκελο C:\xampp\htdocs 
     (ώστε να βρίσκεται στο path C:\xampp\htdocs\astronomy)
 
 B. Επανάληψη βημάτων 2, 3 και 4 της παραπάνω Ενότητας Α, (εφόσον η εφαρμογή XAMPP είναι κλειστή)
 
-    Άνοιγμα νέου παραθύρου (νέας σελίδας) browser
-    Εισαγωγή διεύθυνσης http://localhost/astronomy/index.html
+    1.Άνοιγμα νέου παραθύρου (νέας σελίδας) browser
+    2.Εισαγωγή διεύθυνσης http://localhost/astronomy/index.html
 
