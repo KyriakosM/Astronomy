@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Astronomy for Kids</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a id="top"></a>
+    <header>
+      <!-- Navigation Bar & Header -->
+      <div class="navb" id="navbb">
+        <img src="./Multimedia/logo.png" alt="" />
+        <div id="navbar">
+          <nav>
+            <ul>
+              <li><a href="" class="bb">Ηome</a></li>
+              <div class="dropdown">
+                <li><a href="login.php" class="bb">Είσοδος</a></li>
+                <div class="dropmenu">
+                  <a
+                    href="login.php"
+                    class="dropdown-item"
+                    style="color: #404041"
+                    >Συνδέσου</a
+                  >
+                  <a
+                    href="register.php"
+                    class="dropdown-item"
+                    style="color: #404041"
+                    >Γίνε Μέλος</a
+                  >
+                </div>
+              </div>
+              <li><a href="photos.html" class="bb">Φωτογραφίες</a></li>
+              <li><a href="video.html" class="bb">Βίντεο</a></li>
+            </ul>
+          </nav>
+          <div id="bottombar">
+            <ul>
+              <li><a href="offer.html">Προσφορές</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <video
+        src="./Multimedia/Planets.mp4"
+        autoplay
+        muted
+        loop
+        id="myVideo"
+      ></video>
+      <div class="space"><img src="./Multimedia/logopic.png" alt="" /></div>
+      <div class="hi">Hi!</div>
+      <div class="astrokids">
+        <img src="./Multimedia/astrokids.png" width="400px" alt="" />
+      </div>
+    </header>
+
+    <!-- Second Part -->
+    <div class="second">
+      <section>
+        <div class="secondtext">
+          <h2>EΛΑ ΜΑΖΙ ΜΑΣ</h2>
+          <p>
+            Mείνε συνεχώς σε επαφή <br />
+            με την επιαστήμη και την<br />
+            αστρονομία από όπου <br />
+            και αν είσαι, με την κατα- <br />πληκτική σειρά από βίντεο <br />και
+            πολλααά ακόμα...
+          </p>
+        </div>
+        <div class="pic" id="vid">
+          <img src="./Multimedia/rocket-stars.png" width="125px" alt="" />
+          <h4>
+            Online
+            <br />
+            Videos
+          </h4>
+        </div>
+        <div class="pic" id="symban">
+          <img src="./Multimedia/star.png" width="125px" alt="" />
+          <h4>Το σύμπαν</h4>
+        </div>
+        <div class="pic" id="eggr">
+          <img src="./Multimedia/calendar.png" width="125px" alt="" />
+          <h4>Eγγραφή</h4>
+        </div>
+      </section>
+      <script type="text/javascript">
+        document.getElementById("vid").onclick = function () {
+          location.href = "video.html";
+        };
+        document.getElementById("symban").onclick = function () {
+          location.href = "photos.html";
+        };
+        document.getElementById("eggr").onclick = function () {
+          location.href = "register.php";
+        };
+      </script>
+    </div>
+
+    <!-- Third Part -->
+    <!-- ********** -->
+
+    <section id="third" style="margin-top: 0px; opacity: 1;">
+      <article id="a1">
+        <div>
+          <h2 style="color: white;">ΔΙΑΔΙΚΤΥΑΚΕΣ ΠΑΡΑΤΗΡΗΣΕΙΣ</h2>
+          <p style="color: white;">
+            Δες το Σύμπαν.. <br />
+            από τον υπολογιστή σου!
+          </p>
+          <img src="./Multimedia/yelowright.jpg" id="arrow" />
+
+          <button id="more1">Περισσότερα</button>
+        </div>
+      </article>
+      <article id="a2">
+        <div>
+          <h2 style="color: white;">ΠΑΡΑΤΗΡΗΣΕΙΣ ΑΠΟ ΤΗΛΕΣΚΟΠΙΟ</h2>
+          <p style="color: white;">Δείτε μέσα από το αναβαθμισμένο τηλεσκόπιό μας!</p>
+          <img src="./Multimedia/yelowright.jpg" id="arrow" />
+
+          <button id="more2">Περισσότερα</button>
+        </div>
+      </article>
+    </section>
+    <script type="text/javascript">
+      document.getElementById("more1").onclick = function () {
+        location.href = "video.html";
+      };
+      document.getElementById("more2").onclick = function () {
+        location.href = "photos.html";
+      };
+    </script>
+
+    <!-- Forth Part -->
+    <!-- ********** -->
+    <div class="forth">
+      <div>
+        <img src="./Multimedia/astronaut.png" alt="" />
+      </div>
+      <div>
+        <h3>ΓΙΝΕ ΜΕΛΟΣ</h3>
+        <p>
+          Tα μέλη μπορούν να κλείνουν εισητήρια online και να έχουν πρόσβαση
+          <br />
+          στα Βίντεο και τις φωτογραφίες της σελίδας μας
+        </p>
+        <img src="./Multimedia/whiteright.jpg" id="forth-img" />
+        <button id="forth-btn" onclick="window.location.href='register.php'">
+          Join Us
+        </button>
+      </div>
+    </div>
+
+    <!-- Fifth Part -->
+    <!-- ********** -->
+    <div class="fifth">
+      <h2 class="with-circle">ΕΞΕΡΕΥΝΗΣΤΕ</h2>
+
+      <div class="card">
+        <img src="./Multimedia/support.jpg" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>Yποστηρίξτε την προσπάθεια μας</b></h4>
+          <p>
+            Βοηθείστε μας να συνεχίσουμε να φέρνουμε πιο κοντά την επιστήμη της
+            αστρονομίας στα παιδιά.
+          </p>
+        </div>
+        <a href="offer.html" class="perissotera">Περισσότερα</a>
+      </div>
+      <div class="card">
+        <img src="./Multimedia/Contact.jpg" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>Άμεση επικοινωνία τις εργάσιμες ημέρες</b></h4>
+          <p>
+            Επικοινωνείστε μαζί μας για να μας προτείνετε τις ιδέες σας ή να
+            ακούσουμε τις παρατηρήσεις σας.
+          </p>
+          <a class="perissotera" href="#bot">Περισσότερα</a>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="./Multimedia/kidsplaying.jpg"
+          alt="Avatar"
+          style="width: 100%"
+        />
+        <div class="container">
+          <h4><b>Παιδικές δραστηριότητες</b></h4>
+          <p>
+            Για τμήματα διδασκαλίας αστρονομίας, εκδρομές σε αστεροσκοπεία, και
+            πολλά ακόμα πατήστε εδώ!
+          </p>
+        </div>
+
+        <a class="perissotera" href="offer.html">Περισσότερα</a>
+      </div>
+      <div class="card">
+        <img src="./Multimedia/stars2.jpg" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>Μαγευτικές φωτογραφίες</b></h4>
+          <p>
+            Kαθημερινή ανανέωση με τις πιο εντυπωσιακές φωτογραφίες που
+            λαμβάνουμε
+          </p>
+        </div>
+        <a class="perissotera" href="photos.html">Περισσότερα</a>
+      </div>
+    </div>
+
+    <div class="subscribe">
+      <form action="mailto:kyriakosmgr@gmail.com">
+        <span id="in">
+          <i class="fa fa-chevron-right" aria-hidden="true" id="e"></i>
+
+          <input
+            type="text"
+            placeholder="Καταχωρείστε το τηλ/νο σας να σας καλέσουμε"
+          />
+        </span>
+
+        <input type="submit" value="SUBMIT" />
+      </form>
+      <button
+        class="banner-btn"
+        id="aa"
+        onclick="window.location.href='login.php'"
+      >
+        Συνδεθειτε τωρα!
+      </button>
+
+      <span
+        >Ακολουθήστε μας!
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </span>
+    </div>
+    <br />
+    <h2 id="down">ΕΞΕΡΕΥΝΗΣΤΕ <br />MAZI MΑΣ</h2>
+    <div class="photos" onclick="window.location.href='login.php'"></div>
+
+    <!-- footer -->
+    <!-- ------ -->
+    <!-- επικοινωνία  -->
+    <a id="bot"></a>
+    <footer>
+      <div class="profooter"></div>
+      <div class="footer">
+        <div class="inside-footer">
+          <img
+            width="150"
+            style="margin-left: -6px; width: 200px"
+            src="./Multimedia/logo.png"
+            alt=""
+          />
+          <p class="pfoot">
+            Για οποιαδήποτε απορία, διευκρίνιση <br />
+            ή πρόταση μη διστάσετε να επικοι-<br />
+            νωνήσετε μαζί μας καθημερινά <br />
+            από τις 9:00πμ εας και τις 8:30μμ
+          </p>
+          <br />
+          <i class="fa fa-phone fa-lg pfoot2"></i
+          ><span class="pfoot2" style="margin-left: 10px">697 00 00 000</span
+          ><br />
+          <i class="fa fa-map-marker fa-lg pfoot2"></i
+          ><span class="pfoot2" style="margin-left: 10px">
+            Μ. Καραολή & Α. Δημητρίου 80</span
+          ><br />
+          <i class="fa fa-facebook-square fa-lg pfoot2"></i
+          ><span class="pfoot2" style="margin-left: 10px"
+            >Βρείτε μας στο Facebook</span
+          >
+        </div>
+
+        <div class="inside-footer3">
+          <p class="pfoot2" style="margin-left: 10px; margin-bottom: 20px">
+            Νέες Προσφορές
+          </p>
+          <p class="pfoot" style="margin-left: 10px">
+            Από αρχές του μήνα έκπτωση <br />
+            40% για αγορές άνω των 50 ευρώ!
+          </p>
+          <p class="pfoot2" style="margin-left: 10px; margin-bottom: 20px">
+            Ακούμε τις προτάσεις σας
+          </p>
+          <p class="pfoot" style="margin-left: 10px">
+            Απολύτως εξατομικευμένα προγράμματα<br />
+            παρατηρήσεων σύμφωνα με τις ανάγκες σας!
+          </p>
+          <p class="pfoot2" style="margin-left: 10px; margin-bottom: 20px">
+            Nέα πακέτα
+          </p>
+          <p class="pfoot" style="margin-left: 10px">
+            Μείνετε συντονισμένοι για νεα πακέτα<br />και προσφορές που
+            ανακοινώνονται <br />συνεχώς
+          </p>
+        </div>
+      </div>
+    </footer>
+    <a href="#top" id="arrow-top">
+      <img
+        src="./Multimedia/yelowup.jpg"
+        width="40px"
+        style="margin-top: 7px; margin-left: 5px"
+      />
+    </a>
+    <!----------- Javascript ---------->
+    <!--------------------------------->
+
+    <script>
+      // animations on scroll
+      let x = 0;
+      window.onwheel = (e) => {
+        if (e.deltaY >= 0 && x < 43) {
+          x++;
+          if (x < 2) {
+            document.getElementById("navbb").classList.remove("navb2");
+          } else if (x > 1 && x <= 3) {
+            document.getElementById("navbb").classList.add("navb2");
+          }
+          else if (x > 26 && x < 28) {
+            document.getElementById("aa").classList.add("mystyle");
+          }
+        } else {
+          if (x > 0) {
+            x--;
+          }
+          if (x < 2) {
+            document.getElementById("navbb").classList.remove("navb2");
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

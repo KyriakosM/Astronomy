@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body{
+    padding: 0;
+    margin: 0;    
+    width:100vw;
+    height: 100vh;    
+}
+.panel{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.question-container{
+    margin: 10px;
+    padding: 5px;
+    width: 80vw;
+    height: 10vh;
+    background-color: #c7dddf;
+    font-size: x-large;
+    text-align: center;
+      
+}
+.result{
+    margin: 10px;
+    padding: 5px;
+    width:80vw;
+    height: 10vh;
+    text-align: center;
+    font-size: 50px;
+      
+}
+.option-container{
+    display: flex;
+    justify-content: space-around; 
+    margin: 10px;
+    padding: 5px;
+    width: 80vw;
+    height: 20vh;
+    background-color: #9eb1b3;   
+        
+}
+.option{    
+    padding: 10px;
+    width: 15vw;
+    height: 10vh;
+    font-size: larger;
+    background-color: lightskyblue;
+    border-radius: 25%;
+    color: white;
+    font-weight: bold;
+    background: black;
+}
+.option:hover{
+    background-color: red;
+ 
+}
+.navigation{
+    width: 80vw;
+    height: 10vh;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    background-color:#c7dddf;
+}
+  
+.evaluate,.next{
+    width:30vw;
+    height: 8vh;
+    padding: 5px;
+    font-size: larger;
+}
+.evaluate{
+    
+    background-color: #50DBB4;
+}
+.next{
+    color: white;
+    background-color: #BF3325;
+}
+.exit{
+    background: #ffce34;
+    color:black;
+    box-shadow: 0 0 20px white;
+    padding: 20px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    border-radius: 10px;
+}
+.xx{
+    padding: 25px;
+    font-weight: bold;
+    font-family: arial;
+    color: white;
+}
+
+</style> 
+</head>
+<body style="background: url(./Multimedia/foot.jpg);">
+
+    <p class="dis" style="color: white;font-family: arial;position: absolute; top:180px;left:120px">Πατήστε "evaluate" για να δείτε αν είναι σωστή η απάντηση σας και μετά πατήστε Next!</p>
+    <a href="./index.php" class="exit">Επιστροφή στην κεντρική</a>
+    <p class="exit2" style="background: red; position: absolute;top:40px;left:150px"></p>
+    <div class="panel">
+        <div class="result">
+  
+        </div>
+        <div class="question-container" id="question" style="background: #ffce34;">
+            
+        </div>
+        <div class="option-container" style="background: #ffce34;">
+            <button class="option" onclick="" id="op1" ></button>
+      
+            <button class="option" id="op2" ></button>
+      
+            <button class="option" id="op3"></button>
+      
+            <button class="option" id="op4"></button>
+        </div>
+        <div class="navigation">
+            <button class="evaluate">Evaluate</button>
+            <button class="next">Next</button>
+        </div>
+    </div>
+    <script>
+        // Questions will be asked
+const Questions = [{
+        id: 0,
+        q: "Πόσα αστέρια έχει περίπου ένας γαλαξίας?",
+        a: [{ text: "80 δις", isCorrect: true },
+            { text: "1", isCorrect: false },
+            { text: "3 τρις", isCorrect: false},
+            { text: "1000", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 1,
+        q: "Ποιος από τους παρακάτω δεν είναι τύπος γαλαξία?",
+        a: [{ text: "Σπειροειδής", isCorrect: false, isSelected: false },
+            { text: "Ελλειπτικός", isCorrect: false },
+            { text: "Aνώμαλος", isCorrect: false },
+            { text: "Κυκλικός", isCorrect: true }
+        ]
+  
+    },
+    {
+        id: 2,
+        q: "Οι ανώμαλοι γαλαξίες:",
+        a: [{ text: "Είναι κυκλικοί", isCorrect: false },
+            { text: "Έχουν κόκκινο χρώμα", isCorrect: false },
+            { text: "Δεν έχουν συγκεκριμένο σχήμα", isCorrect: true },
+            { text: "Είναι πολύ λίγοι", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 3,
+        q: "Ο γαλαξίας στα αγγλικά λέγεται:",
+        a: [{ text: "Galaxy", isCorrect: true },
+            { text: "Galaxias", isCorrect: false },
+            { text: "Nebula", isCorrect: false },
+            { text: "Milky", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 4,
+        q: "O Γαλαξίας μας είναι ο μοναδικός στο σύμπαν?",
+        a: [{ text: "Ναι", isCorrect: false },
+            { text: "Υπάρχουν άλλοι 2!", isCorrect: false },
+            { text: "Υπάρχουν δισεκατομμύρια", isCorrect: true },
+            { text: "Δεν είμαστε σίγουροι", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 5,
+        q: "Oι σπειροειδείς γαλαξίες έχουν σπείρες που ξεκινούν:",
+        a: [{ text: "Στο εξωτερικό τους", isCorrect: false },
+            { text: "Από τον πυρήνα τους", isCorrect: true },
+            { text: "Στον γαλαξιακό δίσκο", isCorrect: false },
+            { text: "Δεν έχουν σπείρες", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 6,
+        q: "Οι γαλαξίες βρίσκονται:",
+        a: [{ text: "Δίπλα μας", isCorrect: false },
+            { text: "Αδύνατον να τους δούμε", isCorrect: false },
+            { text: "Eκκατομύρια έτη φωτός", isCorrect: true },
+            { text: "Κοντά στον Ήλιο", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 7,
+        q: "Η γη βρίσκεται:",
+        a: [{ text: "Μέσα στον γαλαξία", isCorrect: true },
+            { text: "Εξω από αυτόν", isCorrect: false },
+            { text: "Στο κέντρο του Γαλαξία", isCorrect: false },
+            { text: "Δεν γνωρίζουμε", isCorrect: false }
+        ]
+  
+    },
+     {
+        id: 8,
+        q: "Oι πλανήτες είναι:",
+        a: [{ text: "4", isCorrect: false},
+            { text: "5", isCorrect: false },
+            { text: "7", isCorrect: false },
+            { text: "8", isCorrect: true }
+        ]
+  
+    },
+    {
+        id: 9,
+        q: "H Γη έχει ___ φυσικό δορυφόρο",
+        a: [{ text: "Δύο", isCorrect: false },
+            { text: "Έναν", isCorrect: true },
+            { text: "Κανέναν", isCorrect: false },
+            { text: "τρεις", isCorrect: false }
+        ]
+  
+    },
+    {
+        id: 10,
+        q: "Ο κοντινότερος πλανήτης στον Ήλιο είναι:",
+        a: [{ text: "Η Γη", isCorrect: false },
+            { text: "Η Αφροδίτη", isCorrect: false },
+            { text: "Ο Άρης", isCorrect: false },
+            { text: "Ο Ερμής", isCorrect: true}
+        ]
+  
+    },
+    {
+        id: 11,
+        q: "Πόσοι πλανήτες περιστρέφονται γύρω από τον Ήλιο?",
+        a: [{ text: "Μόνο η Γη", isCorrect: false },
+            { text: "Όλοι", isCorrect: true },
+            { text: "Κανένας", isCorrect: false },
+            { text: "Ο Ερμής και ο Δίας", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 12,
+        q: "Πόσους κατοικήσιμους πλανήτες γνωρίζουμε?",
+        a: [{ text: "Πάνω από 10", isCorrect: false },
+            { text: "Η Γη και ο Άρης", isCorrect: false },
+            { text: "Μόνο η Γη", isCorrect: true },
+            { text: "Τη Γη και την Αφροδίτη", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 13,
+        q: "Ποιος είναι ο μεγαλύτερος πλανήτης?",
+        a: [{ text: "Ο Ερμής", isCorrect: false },
+            { text: "Ο Άρης", isCorrect: false },
+            { text: "Η Γη", isCorrect: false },
+            { text: "Ο Δίας", isCorrect: true}
+        ]
+  
+    },
+    {
+        id: 14,
+        q: "Ποιος είναι ο μικρότερος πλανήτης?",
+        a: [{ text: "Είναι όλοι ίσοι", isCorrect: false },
+            { text: "Η Γη", isCorrect: false },
+            { text: "O Eρμής", isCorrect: true },
+            { text: "Ο Ποσειδώνας", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 15,
+        q: "Ποιος είναι ο κοντινότερός μας γαλαξίας?",
+        a: [{ text: "Όλοι ισαπέχουν", isCorrect: false },
+            { text: "Η Ανδρομέδα", isCorrect: true },
+            { text: "O Eρμής", isCorrect: false },
+            { text: "Ο Ποσειδώνας", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 16,
+        q: "Υπάρχουν πλανήτες και σε άλλους αστέρες?",
+        a: [{ text: "Οχι", isCorrect: false },
+            { text: "Μάλλον ναι", isCorrect: false },
+            { text: "Ισως, δεν γνωρίζουμε", isCorrect: false },
+            { text: "Ναι, έχουμε βρει πολλούς!", isCorrect: true}
+        ]
+  
+    },
+    {
+        id: 17,
+        q: "Ποιος πλανήτης είναι ο κοντινότερος στη Γη?",
+        a: [{ text: "Ο Άρης", isCorrect: true },
+            { text: "Η αφροδίτη", isCorrect: false },
+            { text: "Η Σελήνη", isCorrect: false },
+            { text: "Ο Πλουτωνας", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 18,
+        q: "Τα νεφελώματα είναι πολύ πυκνά:",
+        a: [{ text: "Ναι!", isCorrect: false },
+            { text: "Είναι σαν τα σύννεφα", isCorrect: false },
+            { text: "Είναι πολύ αραιά!", isCorrect:true  },
+            { text: "Είναι σαν το νερό", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 19,
+        q: "Τα νεφελώματα ειναι σε διαστάσεις:",
+        a: [{ text: "Μικρότερα των πλανητών", isCorrect: false },
+            { text: "Μεγαλύτερα των γαλαξιών", isCorrect: false },
+            { text: "Μεγαλύτερα των αστέρων", isCorrect: true },
+            { text: "Σαν τη Γη", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 20,
+        q: "Τα πραγματικά χρώματα των νεφελωμάτων είναι:",
+        a: [{ text: "Αυτά που βλέπουμε στις φωτογραφίες", isCorrect: false },
+            { text: "Είναι αχρωματικά", isCorrect: true },
+            { text: "Το κόκκινο και το πράσινο", isCorrect: false },
+            { text: "Το ασημί", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 21,
+        q: "Μερικά νεφελώματα πιστεύεται ότι είναι τα μαιευτήρια άστρων:",
+        a: [{ text: "Ναι!", isCorrect: true },
+            { text: "Όχι", isCorrect: false },
+            { text: "Ισως, δεν γνωρίζουμε", isCorrect: false },
+            { text: "Πολύ σπάνια", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 22,
+        q: "Οι μαύρες τρύπες λέγονται έτσι γιατί:",
+        a: [{ text: "Είναι πολύ μακρυά", isCorrect:false },
+            { text: "Έχουν μαύρο χρώμα", isCorrect: false },
+            { text: "Απορροφούν το φως", isCorrect:true   },
+            { text: "Δεν έχουν εντοπιστεί", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 23,
+        q: "Οι μαύρες τρύπες έχουν βαρύτητα:",
+        a: [{ text: "Σαν της Γης", isCorrect:false },
+            { text: "Που αλλάζει συνεχώς", isCorrect: false },
+            { text: "Πολύ ισχυρή", isCorrect:true   },
+            { text: "Δεν έχουν βαρύτητα", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 24,
+        q: "Η Γη είναι ο:",
+        a: [{ text: "Τρίτος πλανήτης", isCorrect:true },
+            { text: "Τέταρτος Πλανήτης", isCorrect: false },
+            { text: "Πρώτος Πλανήτης", isCorrect:false   },
+            { text: "Μεγαλύτερος πλανήτης", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 25,
+        q: "Οι αστερισμοί:",
+        a: [{ text: "Είναι συστήματα αστέρων", isCorrect:false },
+            { text: "Υπάρχουν στα αλήθεια!", isCorrect: false },
+            { text: "Υπάρχουν στη φαντασία μας", isCorrect:true   },
+            { text: "Μερικοί υπάρχουν", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 26,
+        q: "Οι αστέρες νετρονίων:",
+        a: [{ text: "Αποτελούνται από Νετρόνια", isCorrect:true  },
+            { text: "Είναι μαύρες τρύπες", isCorrect: false },
+            { text: "Είναι αστρικά πτώματα", isCorrect: false },
+            { text: "Δεν έχουν εντοπιστεί", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 27,
+        q: "Ο Ήλιος μας θα γίνει κάποτε:",
+        a: [{ text: "Αστέρας νετρονίων", isCorrect:false },
+            { text: "Κόκκινος νάνος", isCorrect: false },
+            { text: "Λευκός νάνος", isCorrect:true   },
+            { text: "Μαύρη τρύπα", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 28,
+        q: "Οι λευκοί νάνοι:",
+        a: [{ text: "Έχουν μάζα ίση με τη Γη", isCorrect:false },
+            { text: "Είναι αστρικά πτώματα", isCorrect: true },
+            { text: "Είναι πλανήτες", isCorrect: false  },
+            { text: "Είναι χαμηλής πυκνότητας", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 29,
+        q: "Με ποια σειρά κατατάσσονται απ' το μικρότερο στο μεγαλύτερο βάση μάζας:",
+        a: [{ text: "Λ. νάνοι, pulsars, Μ. τρύπες", isCorrect:true },
+            { text: "Μ. τρύπες,Λ. νάνοι,pulsars", isCorrect:false  },
+            { text: "Είναι ίσοι", isCorrect: false  },
+            { text: "pulsars,Μ. τρύπες,Λ. νάνοι", isCorrect: false}
+        ]
+  
+    },
+    {
+        id: 30,
+        q: "Με ποια σειρά κατατάσσονται απ' το μικρότερο στο μεγαλύτερο βάση μεγέθους:",
+        a: [{ text: "Λευκοί νάνοι, pulsars, Μ. τρύπες", isCorrect:false },
+            { text: "Μαύρες τρύπες, Λευκοί νάνοι, pulsars", isCorrect:false  },
+            { text: "Μαύρες τρύπες, pulsars, Λευκοί νάνοι", isCorrect: true  },
+            { text: "pulsars,Μαύρες τρύπες,Λευκοί νάνοι", isCorrect: false}
+        ]
+  
+    },
+     {
+        id: 31,
+        q: "Πόσο θα ζύγιζε ένας άνθρωπος στον Ηλίο?",
+        a: [{ text: "Πολύ περισσότερο απ ότι στη Γη", isCorrect:true  },
+            { text: "Το ίδιο", isCorrect:false  },
+            { text: "Όσο σε μια Μαύρη τρύπα", isCorrect: false },
+            { text: "Δεν θα είχε βάρος", isCorrect: false}
+        ]
+  
+    },
+     {
+        id: 32,
+        q: "Η ηλιακή έκλειψη συμβαίνει γιατι μπαίνει η:",
+        a: [{ text: "Σελήνη μπροστά απ'τον Ήλιο", isCorrect:true  },
+            { text: "Αφροδίτη μπροστά στη Γη", isCorrect:false  },
+            { text: "Νέα δεκαετία", isCorrect: false },
+            { text: "Άνοιξη", isCorrect: false}
+        ]
+  
+    },
+ {
+        id: 33,
+        q: "Η μεγαλύτερη ταχύητα που μπορούμε να ταξιδέψουμε είναι:",
+        a: [{ text: "1000 km/h", isCorrect: false },
+            { text: "Η ταχύτητα του φωτός", isCorrect:true  },
+            { text: "Δεν υπάρχει όριο", isCorrect: false },
+            { text: "Η ταχύτητα του ήχου", isCorrect: false}
+        ]
+  
+    },
+    
+
+
+
+    
+  
+]
+  
+// Set start
+var start = true;
+  
+// Iterate
+function iterate(id) {
+  
+    // Getting the result display section
+    var result = document.getElementsByClassName("result");
+    result[0].innerText = "";
+  
+    // Getting the question
+    const question = document.getElementById("question");
+  
+  
+    // Setting the question text
+    question.innerText = Questions[id].q;
+  
+    // Getting the options
+    const op1 = document.getElementById('op1');
+    const op2 = document.getElementById('op2');
+    const op3 = document.getElementById('op3');
+    const op4 = document.getElementById('op4');
+  
+  
+    // Providing option text 
+    op1.innerText = Questions[id].a[0].text;
+    op2.innerText = Questions[id].a[1].text;
+    op3.innerText = Questions[id].a[2].text;
+    op4.innerText = Questions[id].a[3].text;
+  
+    // Providing the true or false value to the options
+    op1.value = Questions[id].a[0].isCorrect;
+    op2.value = Questions[id].a[1].isCorrect;
+    op3.value = Questions[id].a[2].isCorrect;
+    op4.value = Questions[id].a[3].isCorrect;
+  
+    var selected = "";
+  
+    // Show selection for op1
+    op1.addEventListener("click", () => {
+        op1.style.backgroundColor = "red";
+        op2.style.backgroundColor = "black";
+        op3.style.backgroundColor = "black";
+        op4.style.backgroundColor = "black";
+        selected = op1.value;
+    })
+  
+    // Show selection for op2
+    op2.addEventListener("click", () => {
+        op1.style.backgroundColor = "black";
+        op2.style.backgroundColor = "red";
+        op3.style.backgroundColor = "black";
+        op4.style.backgroundColor = "black";
+        selected = op2.value;
+    })
+  
+    // Show selection for op3
+    op3.addEventListener("click", () => {
+        op1.style.backgroundColor = "black";
+        op2.style.backgroundColor = "black";
+        op3.style.backgroundColor = "red";
+        op4.style.backgroundColor = "black";
+        selected = op3.value;
+    })
+  
+    // Show selection for op4
+    op4.addEventListener("click", () => {
+        op1.style.backgroundColor = "black";
+        op2.style.backgroundColor = "black";
+        op3.style.backgroundColor = "black";
+        op4.style.backgroundColor = "red";
+        selected = op4.value;
+    })
+  
+    // Grabbing the evaluate button
+    const evaluate = document.getElementsByClassName("evaluate");
+  x=0;
+    // Evaluate method
+    evaluate[0].addEventListener("click", () => {
+        if (selected == "true") {
+            x=1;
+            result[0].innerHTML = "True";
+            result[0].style.color = "green";
+        } else {
+            result[0].innerHTML = "False";
+            result[0].style.color = "red";
+        }
+    })
+}
+  
+if (start) {
+    iterate("0");
+}
+  
+// Next button and method
+const next = document.getElementsByClassName('next')[0];
+var id = 0;
+  
+next.addEventListener("click", () => {
+    start = false;
+    if (x==1){
+    if (id < 100) {
+        id++;
+        iterate(id);
+    if (id==33 ){
+        console.log("hi")
+        var xs = document.getElementsByClassName("exit2");
+        xs[0].innerText = "Συγχαρητήρια! Oλοκληρώσατε τις ερωτήσεις με επιτυχία!! Επιστρέψτε στο κεντρικό μενού πατώντας το κουμπί στα δεξιά";
+        xs[0].classList.add("xx");
+        var sd=1;
+    }
+    if (sd==1){
+        console.log("hi")
+    }     
+    }}
+  
+})
+    </script>
+    
+</body>
+</html>
